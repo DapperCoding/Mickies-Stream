@@ -7,15 +7,15 @@ import {
 } from "discord.js";
 
 export class GenericRichEmbedPageHandler<T> {
-  data: T[];
-  itemsPerPage: number;
-  itemHandler: (embed: RichEmbed, data: T[]) => RichEmbed;
-  currentPage: number = 1;
-  amountOfPages: number;
-  embed: RichEmbed;
-  message: Message;
-  authorId: any;
-  collector: ReactionCollector | null = null;
+  private data: T[];
+  private itemsPerPage: number;
+  private itemHandler: (embed: RichEmbed, data: T[]) => RichEmbed;
+  private currentPage: number = 1;
+  private amountOfPages: number;
+  private embed: RichEmbed;
+  private message: Message;
+  private authorId: any;
+  private collector: ReactionCollector | null = null;
 
   /**
    *
@@ -171,5 +171,9 @@ export class GenericRichEmbedPageHandler<T> {
         // Delete the message
         this.message.delete(0);
     });
+  }
+
+  public getCollector() {
+    return this.collector;
   }
 }

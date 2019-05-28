@@ -38,6 +38,8 @@ export default class testingReaction implements IBotCommand {
           embed,
           message
         );
+
+        handler.startCollecting();
       })
       .catch(console.error);
   }
