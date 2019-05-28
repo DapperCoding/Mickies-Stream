@@ -39,7 +39,8 @@ export default class testingReaction implements IBotCommand {
           message
         );
 
-        handler.startCollecting();
+        handler.showPage();
+        handler.startCollecting(message.author.id);
       })
       .catch(console.error);
   }

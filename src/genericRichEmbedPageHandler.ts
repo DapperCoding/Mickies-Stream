@@ -120,13 +120,13 @@ export class GenericRichEmbedPageHandler<T> {
 
     await this.message.react("◀");
     await this.message.react("▶");
-    await this.message.react("<:failiure:550070013646733312>");
+    await this.message.react("❌");
 
     const filter = (reaction: MessageReaction, user: User) =>
       // Check if emoji is ◀ or ▶
       (reaction.emoji.name === "◀" ||
         reaction.emoji.name === "▶" ||
-        reaction.emoji.id === "550070013646733312") &&
+        reaction.emoji.name === "❌") &&
       // Check if reaction is added by command user
       user.id === this.authorId;
 
@@ -148,7 +148,7 @@ export class GenericRichEmbedPageHandler<T> {
         this.NextPage();
 
         // If emoji is the X
-      } else if (r.emoji.id === "550070013646733312") {
+      } else if (r.emoji.name === "❌") {
         this.stopCollecting();
       }
 
